@@ -11,6 +11,7 @@ RUN apt-get -o Acquire::http::proxy="http://proxy.fiosys.co.jp:8080" update
 RUN apt-get -o Acquire::http::proxy="http://proxy.fiosys.co.jp:8080" -y install apache2
 COPY ./html /var/www/
 COPY ./run-apache2.sh /tmp/
+RUN chmod 755 /tmp/run-apache2.sh
 
 EXPOSE 80
 
