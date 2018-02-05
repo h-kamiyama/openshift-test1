@@ -10,6 +10,7 @@ RUN sudo sed -i -e 's;utopic;trusty;g' /etc/apt/sources.list
 RUN apt-get -o Acquire::http::proxy="http://proxy.fiosys.co.jp:8080" update
 RUN apt-get -o Acquire::http::proxy="http://proxy.fiosys.co.jp:8080" -y install apache2
 COPY ./html /var/www/
+COPY ./run-apache2.sh /tmp/
 
 # /etc/apache2/envvarsの中身
 ENV APACHE_RUN_USER=www-data
@@ -21,4 +22,4 @@ ENV APACHE_LOG_DIR=/var/log/apache2$SUFFIX
 
 EXPOSE 80
 
-CMD /usr/sbin/apache2 -D FOREGROUND
+CMD /tmp/run-apache2.sh
