@@ -6,8 +6,8 @@ MAINTAINER h-kamiyama h-kamiyama@keyportsolutions.com
 
 # 必要なファイルのインストール
 USER root
-RUN apt-get update
-RUN apt-get -y install apache2
+RUN apt-get -o Acquire::http::proxy="http://proxy.fiosys.co.jp:8080" update
+RUN apt-get -o Acquire::http::proxy="http://proxy.fiosys.co.jp:8080" -y install apache2
 COPY ./html /var/www/
 
 # /etc/apache2/envvarsの中身
