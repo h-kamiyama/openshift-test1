@@ -5,9 +5,10 @@ FROM centos:6.9
 MAINTAINER h-kamiyama h-kamiyama@keyportsolutions.com
 
 # 必要なファイルのインストール
-USER root
+#USER root
 RUN echo "proxy=http://proxy.fiosys.co.jp:8080" >> /etc/yum.conf
-RUN yum -y install httpd
+RUN yum -y update; yum clean all
+RUN yum -y install httpd; yum clean all
 COPY ./html /var/www/html/
 COPY ./run-httpd.sh /tmp/
 RUN chmod 755 /tmp/run-httpd.sh
