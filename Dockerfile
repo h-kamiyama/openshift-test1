@@ -7,7 +7,6 @@ MAINTAINER h-kamiyama h-kamiyama@keyportsolutions.com
 # 必要なファイルのインストール
 USER root
 RUN echo "proxy=http://proxy.fiosys.co.jp:8080" >> /etc/yum.conf
-RUN yum update
 RUN yum -y install httpd
 COPY ./html /var/www/html/
 COPY ./run-httpd.sh /tmp/
