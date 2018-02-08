@@ -15,5 +15,4 @@ RUN chmod 755 /tmp/run-httpd.sh
 
 EXPOSE 80
 
-#CMD /tmp/run-httpd.sh
-CMD /bin/bash
+CMD /tmp/run-httpd.sh
